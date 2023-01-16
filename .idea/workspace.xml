@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c909e530-5136-44bd-b1f0-8009ee3396dd" name="Changes" comment="create package">
+    <list default="true" id="c909e530-5136-44bd-b1f0-8009ee3396dd" name="Changes" comment="change mas on arraylist">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/ru/burytia/cft/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/burytia/cft/Main.java" afterDir="false" />
     </list>
@@ -86,7 +86,7 @@
       <option name="presentableId" value="Default" />
       <updated>1673840631860</updated>
       <workItem from="1673840633699" duration="3647000" />
-      <workItem from="1673846202921" duration="8403000" />
+      <workItem from="1673846202921" duration="10761000" />
     </task>
     <task id="LOCAL-00001" summary="create package">
       <created>1673840776056</created>
@@ -109,7 +109,21 @@
       <option name="project" value="LOCAL" />
       <updated>1673841709540</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="make merge sort">
+      <created>1673873369647</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1673873369647</updated>
+    </task>
+    <task id="LOCAL-00005" summary="change mas on arraylist">
+      <created>1673875245896</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1673875245896</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +142,9 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="create package" />
-    <option name="LAST_COMMIT_MESSAGE" value="create package" />
+    <MESSAGE value="make merge sort" />
+    <MESSAGE value="change mas on arraylist" />
+    <option name="LAST_COMMIT_MESSAGE" value="change mas on arraylist" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

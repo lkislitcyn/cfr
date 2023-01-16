@@ -25,9 +25,11 @@ public class Main {
                 if (Integer.parseInt(int_line1) < Integer.parseInt(int_line2))
                 {
                     arrayList.add(Integer.parseInt(int_line1));
+                    file3.write(int_line1+"\n");
                     int_line1=file1.readLine();
                 } else {
                     arrayList.add(Integer.parseInt(int_line2));
+                    file3.write(int_line2+"\n");
                     int_line2=file2.readLine();
                 }
             }
@@ -35,12 +37,14 @@ public class Main {
             while (int_line1 != null )
             {
                 arrayList.add(Integer.parseInt(int_line1));
+                file3.write(int_line1+"\n");
                 int_line1=file1.readLine();
             }
 
             while (int_line2 != null )
             {
                 arrayList.add(Integer.parseInt(int_line2));
+                file3.write(int_line2+"\n");
                 int_line2=file2.readLine();
             }
 
