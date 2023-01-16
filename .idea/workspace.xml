@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c909e530-5136-44bd-b1f0-8009ee3396dd" name="Changes" comment="create package">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/ru/burytia/cft/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/ru/burytia/cft/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,7 +70,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1673840631860</updated>
-      <workItem from="1673840633699" duration="692000" />
+      <workItem from="1673840633699" duration="1016000" />
     </task>
     <task id="LOCAL-00001" summary="create package">
       <created>1673840776056</created>
@@ -79,7 +79,14 @@
       <option name="project" value="LOCAL" />
       <updated>1673840776056</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="create package">
+      <created>1673841329273</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1673841329273</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
