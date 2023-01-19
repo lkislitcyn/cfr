@@ -1,5 +1,6 @@
 package ru.burytia.cft;
 
+
 import java.util.List;
 
 public class InputFileParametres {

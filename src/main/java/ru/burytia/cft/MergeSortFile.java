@@ -1,5 +1,6 @@
 package ru.burytia.cft;
 
+
 import java.io.*;
 
 public class MergeSortFile {

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 public class ArgsParser {
 
 
+
     InputFileParametres parser(String[] args) {
         SortDirection sortDirection = SortDirection.ASC;
         DataType dataType = null;
