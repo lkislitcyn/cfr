@@ -1,8 +1,6 @@
 package ru.burytia.cft;
 
-
 import java.util.List;
-
 public class InputFileParametres {
     private SortDirection sortDirection;
     private DataType dataType;
@@ -41,5 +39,4 @@ public class InputFileParametres {
                 ", inFiles=" + inFiles +
                 '}';
     }
-
 }
