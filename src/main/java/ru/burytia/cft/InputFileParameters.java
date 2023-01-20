@@ -1,13 +1,13 @@
 package ru.burytia.cft;
 
 import java.util.List;
-public class InputFileParametres {
+public class InputFileParameters {
     private SortDirection sortDirection;
     private DataType dataType;
     private String outFile;
     private List<String> inFiles ;
 
-    public InputFileParametres(SortDirection sortDirection, DataType dataType, String outFile, List<String> inFiles) {
+    public InputFileParameters(SortDirection sortDirection, DataType dataType, String outFile, List<String> inFiles) {
         this.sortDirection = sortDirection;
         this.dataType = dataType;
         this.outFile = outFile;

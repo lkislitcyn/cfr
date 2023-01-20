@@ -9,7 +9,7 @@ public class ArgsParser {
     private static final String DES_KEY="-d";
 
 
-    InputFileParametres parser(String[] args) {
+    InputFileParameters parser(String[] args) {
 
         SortDirection sortDirection = SortDirection.ASC;
         DataType dataType = null;
@@ -32,7 +32,7 @@ public class ArgsParser {
             } else System.out.println("error!");
         }
 
-        return new InputFileParametres(sortDirection, dataType, outFile, inFiles);
+        return new InputFileParameters(sortDirection, dataType, outFile, inFiles);
     }
 
 

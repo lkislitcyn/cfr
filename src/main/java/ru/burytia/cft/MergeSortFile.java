@@ -10,17 +10,16 @@ import java.util.Arrays;
 
 public class MergeSortFile {
 
-    void mergeSortFile(InputFileParametres inputFileParametres) {
-        var arrayList = new ArrayList<>();
-        try (var inReader1 = new BufferedReader(new FileReader(inputFileParametres.getInFiles().get(0)));
-             var inReader2 = new BufferedReader(new FileReader(inputFileParametres.getInFiles().get(1)));
-             var outWriter = new BufferedWriter(new FileWriter(inputFileParametres.getOutFile()));) {
+    void mergeSortFile(SortDirection sortDirection, DataType dataType, String outFile, String inFile1, String inFile2) {
+        try (var inReader1 = new BufferedReader(new FileReader(inFile1));
+             var inReader2 = new BufferedReader(new FileReader(inFile2));
+             var outWriter = new BufferedWriter(new FileWriter(outFile));) {
             String line1, line2;
             line1 = inReader1.readLine();
             line2 = inReader2.readLine();
             while ((line1 != null) && (line2 != null)) {
-                if (inputFileParametres.getSortDirection() == SortDirection.ASC) {
-                    if (compareASC(line1, line2, inputFileParametres.getDataType())) {
+                if (sortDirection == SortDirection.ASC) {
+                    if (compareASC(line1, line2, dataType)) {
                         outWriter.write(line1 + "\n");
                         line1 = inReader1.readLine();
                     } else {
@@ -28,7 +27,7 @@ public class MergeSortFile {
                         line2 = inReader2.readLine();
                     }
                 } else {
-                    if (compareDES(line1, line2, inputFileParametres.getDataType())) {
+                    if (compareDES(line1, line2, dataType)) {
                         outWriter.write(line1 + "\n");
                         line1 = inReader1.readLine();
                     } else {
@@ -64,19 +63,19 @@ public class MergeSortFile {
         if (dataType == DataType.INT) {
             return (Integer.parseInt(line1) <= Integer.parseInt(line2));
         } else {
-            return (line2.compareTo(line1) > 0);
+            return (line1.compareTo(line2) > 0);
         }
     }
 }
 
 class MainTest {
     public static void main(String[] args) {
-        ArrayList<String> arrayList = new ArrayList<>(Arrays.asList("/home/lkislitcyn/workdir/intAscending/1.txt", "/home/lkislitcyn/workdir/intAscending/2.txt"));
-        String fileOut = "/home/lkislitcyn/workdir/intAscending/3.txt";
+        String filein1 = "/home/lkislitcyn/workdir/strDescending/1.txt";
+        String filein2 = "/home/lkislitcyn/workdir/strDescending/2.txt";
+        String fileOut = "/home/lkislitcyn/workdir/strDescending/3.txt";
 
-        InputFileParametres inputFileParametres = new InputFileParametres(SortDirection.ASC, DataType.INT, fileOut, arrayList);
         MergeSortFile mergeSortFile = new MergeSortFile();
-        mergeSortFile.mergeSortFile(inputFileParametres);
+        mergeSortFile.mergeSortFile(SortDirection.DESC, DataType.STRING, fileOut, filein1,filein2);
     }
 }
 
