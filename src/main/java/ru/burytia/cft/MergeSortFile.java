@@ -13,7 +13,7 @@ public class MergeSortFile {
     void mergeSortFile(SortDirection sortDirection, DataType dataType, String outFile, String inFile1, String inFile2) {
         try (var inReader1 = new BufferedReader(new FileReader(inFile1));
              var inReader2 = new BufferedReader(new FileReader(inFile2));
-             var outWriter = new BufferedWriter(new FileWriter(outFile));) {
+             var outWriter = new BufferedWriter(new FileWriter(outFile))) {
             var line1 = inReader1.readLine();
             var line2 = inReader2.readLine();
             while ((line1 != null) && (line2 != null)) {
@@ -67,15 +67,5 @@ public class MergeSortFile {
     }
 }
 
-class MainTest {
-    public static void main(String[] args) {
-        var filein1 = "/home/lkislitcyn/workdir/strDescending/1.txt";
-        var filein2 = "/home/lkislitcyn/workdir/strDescending/2.txt";
-        var fileOut = "/home/lkislitcyn/workdir/strDescending/3.txt";
-
-        MergeSortFile mergeSortFile = new MergeSortFile();
-        mergeSortFile.mergeSortFile(SortDirection.DESC, DataType.STRING, fileOut, filein1, filein2);
-    }
-}
 
 
