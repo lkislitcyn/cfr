@@ -1,7 +1,6 @@
 package ru.burytia.cft;
 
-
-public enum SortDirection{
+public enum SortDirection {
     ASC,
     DESC
 }
