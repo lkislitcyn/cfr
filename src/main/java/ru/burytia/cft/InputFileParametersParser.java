@@ -22,7 +22,6 @@ public class InputFileParametersParser {
                 if (Files.exists(tempFile)) {
                     Files.delete(tempFile);
                 }
-
             }
         } else {
             Files.move(Paths.get(inputFileParameters.getInFiles().get(0)), Paths.get(fileOut));
