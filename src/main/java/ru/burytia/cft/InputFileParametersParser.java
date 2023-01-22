@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
 public class InputFileParametersParser {
-    private final static String TEMP_FILE = "temp.txt";
+    private static final String TEMP_FILE = "temp.txt";
 
     void inputFileParametersParser(InputFileParameters inputFileParameters) throws IOException {
         var dataType = inputFileParameters.getDataType();
