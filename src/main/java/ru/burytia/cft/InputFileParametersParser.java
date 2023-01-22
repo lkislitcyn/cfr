@@ -18,7 +18,6 @@ public class InputFileParametersParser {
         var fileOutPath = Paths.get(fileOut);
         if (inputFileParameters.getInFiles().size() > 1) {
             mergeSortFile.mergeSortFile(sortDirection, dataType, fileOut, inputFileParameters.getInFiles().get(0), inputFileParameters.getInFiles().get(1));
-
             for (int i = 2; i < (inputFileParameters.getInFiles().size()); i++) {
                 Files.move(fileOutPath, tempFile);
                 mergeSortFile.mergeSortFile(sortDirection, dataType, fileOut, TEMP_FILE, inputFileParameters.getInFiles().get(i));
