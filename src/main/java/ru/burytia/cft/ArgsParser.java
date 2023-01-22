@@ -14,23 +14,27 @@ public class ArgsParser {
         DataType dataType = null;
         String outFile = null;
         ArrayList<String> inFiles = new ArrayList<>();
-        for (String i : args) {
-            if (i.equals(INT_KEY)) {
-                dataType = DataType.INT;
-            } else if (i.equals(STR_KEY)) {
-                dataType = DataType.STRING;
-            } else if (i.equals(DES_KEY)) {
-                sortDirection = SortDirection.DESC;
-            } else if (i.equals(ASC_KEY)) {
-                sortDirection = SortDirection.ASC;
-            } else if ((outFile == null) && !i.startsWith("-")) {
-                outFile = i;
-            } else if (!i.startsWith("-")) {
-                inFiles.add(i);
-            } else System.out.println("error!");
+        if (args.length != 0) {
+            for (String i : args) {
+                if (i.equals(INT_KEY)) {
+                    dataType = DataType.INT;
+                } else if (i.equals(STR_KEY)) {
+                    dataType = DataType.STRING;
+                } else if (i.equals(DES_KEY)) {
+                    sortDirection = SortDirection.DESC;
+                } else if (i.equals(ASC_KEY)) {
+                    sortDirection = SortDirection.ASC;
+                } else if ((outFile == null) && !i.startsWith("-")) {
+                    outFile = i;
+                } else if (!i.startsWith("-")) {
+                    inFiles.add(i);
+                } else {
+                    throw new IllegalArgumentException("Illegal Arguments in command line");
+                }
+            }
+            } else {throw new IllegalArgumentException("Empty command line");}
+            return new InputFileParameters(sortDirection, dataType, outFile, inFiles);
         }
-        return new InputFileParameters(sortDirection, dataType, outFile, inFiles);
     }
-}
 
 
