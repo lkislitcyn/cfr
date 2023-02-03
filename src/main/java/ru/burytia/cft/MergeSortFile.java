@@ -18,20 +18,29 @@ public class MergeSortFile {
             var line1 = inReader1.readLine();
             var line2 = inReader2.readLine();
             while ((line1 != null) & (line2 != null)) {
-                if (sortDirection == SortDirection.ASC) {
-                    if (compareASC(line1, line2, dataType)) {
-                        outWriter.write(line1 + "\n");
-                        line1 = inReader1.readLine();
+                if (!line1.isEmpty() && !line2.isEmpty()) {
+                    if (sortDirection == SortDirection.ASC) {
+                        if (compareASC(line1, line2, dataType)) {
+                            outWriter.write(line1 + "\n");
+                            line1 = inReader1.readLine();
+                        } else {
+                            outWriter.write(line2 + "\n");
+                            line2 = inReader2.readLine();
+                        }
                     } else {
-                        outWriter.write(line2 + "\n");
-                        line2 = inReader2.readLine();
+                        if (compareDES(line1, line2, dataType)) {
+                            outWriter.write(line1 + "\n");
+                            line1 = inReader2.readLine();
+                        } else {
+                            outWriter.write(line2 + "\n");
+                            line2 = inReader2.readLine();
+                        }
                     }
                 } else {
-                    if (compareDES(line1, line2, dataType)) {
-                        outWriter.write(line1 + "\n");
-                        line1 = inReader2.readLine();
-                    } else {
-                        outWriter.write(line2 + "\n");
+                    if (line1.isEmpty()) {
+                        line1 = inReader1.readLine();
+                    }
+                    if (line2.isEmpty()) {
                         line2 = inReader2.readLine();
                     }
                 }
