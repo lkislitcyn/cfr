@@ -1,6 +1,7 @@
 package ru.burytia.cft;
 
 import java.util.List;
+import java.util.Objects;
 
 public class InputFileParameters {
     private SortDirection sortDirection;
@@ -39,5 +40,18 @@ public class InputFileParameters {
                 ", outFile='" + outFile + '\'' +
                 ", inFiles=" + inFiles +
                 '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        InputFileParameters that = (InputFileParameters) o;
+        return sortDirection == that.sortDirection && dataType == that.dataType && Objects.equals(outFile, that.outFile) && Objects.equals(inFiles, that.inFiles);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sortDirection, dataType, outFile, inFiles);
     }
 }

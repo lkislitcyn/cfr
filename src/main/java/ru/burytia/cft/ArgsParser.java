@@ -8,7 +8,7 @@ public class ArgsParser {
     private static final String ASC_KEY = "-a";
     private static final String DES_KEY = "-d";
 
-    InputFileParameters parser(String[] args) {
+    public InputFileParameters parser(String[] args) {
 
         SortDirection sortDirection = SortDirection.ASC;
         DataType dataType = null;

@@ -11,12 +11,13 @@ import java.util.Arrays;
 public class MergeSortFile {
 
     void mergeSortFile(SortDirection sortDirection, DataType dataType, String outFile, String inFile1, String inFile2) {
+        System.out.println(inFile1 + " " + inFile2);
         try (var inReader1 = new BufferedReader(new FileReader(inFile1));
              var inReader2 = new BufferedReader(new FileReader(inFile2));
              var outWriter = new BufferedWriter(new FileWriter(outFile))) {
             var line1 = inReader1.readLine();
             var line2 = inReader2.readLine();
-            while ((line1 != null) && (line2 != null)) {
+            while ((line1 != null) & (line2 != null)) {
                 if (sortDirection == SortDirection.ASC) {
                     if (compareASC(line1, line2, dataType)) {
                         outWriter.write(line1 + "\n");
@@ -28,7 +29,7 @@ public class MergeSortFile {
                 } else {
                     if (compareDES(line1, line2, dataType)) {
                         outWriter.write(line1 + "\n");
-                        line1 = inReader1.readLine();
+                        line1 = inReader2.readLine();
                     } else {
                         outWriter.write(line2 + "\n");
                         line2 = inReader2.readLine();
@@ -37,7 +38,6 @@ public class MergeSortFile {
             }
             mergeSortTail(inReader1, outWriter, line1);
             mergeSortTail(inReader2, outWriter, line2);
-
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -47,6 +47,7 @@ public class MergeSortFile {
         while (line != null) {
             outWriter.write(line + "\n");
             line = inReader.readLine();
+
         }
     }
 
@@ -60,7 +61,7 @@ public class MergeSortFile {
 
     private boolean compareDES(String line1, String line2, DataType dataType) {
         if (dataType == DataType.INT) {
-            return (Integer.parseInt(line1) <= Integer.parseInt(line2));
+            return (Integer.parseInt(line1) >= Integer.parseInt(line2));
         } else {
             return (line1.compareTo(line2) > 0);
         }

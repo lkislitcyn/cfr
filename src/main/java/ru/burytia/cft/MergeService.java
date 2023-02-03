@@ -2,14 +2,13 @@ package ru.burytia.cft;
 
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 
-public class InputFileParametersParser {
+public class MergeService {
     private static final String TEMP_FILE = "temp.txt";
 
-    void inputFileParametersParser(InputFileParameters inputFileParameters) throws IOException {
+    void mergeService(InputFileParameters inputFileParameters) throws IOException {
         var dataType = inputFileParameters.getDataType();
         var sortDirection = inputFileParameters.getSortDirection();
         var fileOut = inputFileParameters.getOutFile();
