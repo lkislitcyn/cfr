@@ -7,10 +7,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 
 public class MergeSortFile {
 
     void mergeSortFile(SortDirection sortDirection, DataType dataType, String outFile, String inFile1, String inFile2) {
+
         System.out.println(inFile1 + " " + inFile2);
         try (var inReader1 = new BufferedReader(new FileReader(inFile1));
              var inReader2 = new BufferedReader(new FileReader(inFile2));
@@ -75,7 +77,12 @@ public class MergeSortFile {
             return (line1.compareTo(line2) > 0);
         }
     }
+
+
+
 }
+
+
 
 
 
