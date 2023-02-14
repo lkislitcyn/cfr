@@ -1,9 +1,27 @@
 package ru.burytia.cft;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.Comparator;
 
 public class MergeFileSort {
+    void mergeFileSort(SortDirection sortDirection, DataType dataType, String outFile, String inFile1, String inFile2) {
+        try (var inReader1 = new BufferedReader(new FileReader(inFile1));
+             var inReader2 = new BufferedReader(new FileReader(inFile2));
+             var outWriter = new BufferedWriter(new FileWriter(outFile))) {
+            if (dataType == DataType.INT) {
+                mergeSort(intCompare(sortDirection), inReader1, inReader2, outWriter);
+            } else {
+                mergeSort(strCompare(sortDirection), inReader1, inReader2, outWriter);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
     void mergeSort(Comparator<String> comparator, BufferedReader in1, BufferedReader in2, BufferedWriter out) throws IOException {
         var line1 = in1.readLine();
         var line2 = in2.readLine();
@@ -27,25 +45,28 @@ public class MergeFileSort {
         }
         mergeSortTail(line1, in1, out);
         mergeSortTail(line2, in2, out);
-
-
     }
 
     Comparator<String> intCompare(SortDirection sortDirection) {
-
         return new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
-                if (sortDirection == SortDirection.ASC) {
-                    return Integer.parseInt(o1) - Integer.parseInt(o2);
-                } else {
-                    return Integer.parseInt(o2) - Integer.parseInt(o1);
+                try {
+                    if (sortDirection == SortDirection.ASC) {
+                        return Integer.parseInt(o1) - Integer.parseInt(o2);
+                    } else {
+                        return Integer.parseInt(o2) - Integer.parseInt(o1);
+                    }
+                } catch (NumberFormatException ex) {
+                    System.out.println("Symbol in array");
                 }
+                return 0;
             }
         };
     }
-    Comparator<String> strCompare(SortDirection sortDirection)
-    {
+
+
+    Comparator<String> strCompare(SortDirection sortDirection) {
         return new Comparator<String>() {
             @Override
             public int compare(String o1, String o2) {
@@ -58,74 +79,15 @@ public class MergeFileSort {
         };
     }
 
-    private void mergeSortTail(String line, BufferedReader in1, BufferedWriter out) throws IOException {
+    private void mergeSortTail(String line, BufferedReader in, BufferedWriter out) throws IOException {
         while (line != null) {
             if (!line.isBlank()) {
                 out.write(line);
                 out.newLine();
             }
-            line = in1.readLine();
+            line = in.readLine();
         }
     }
-
 }
 
 
-//class MergeMain {
-//    public static void main(String[] args) {
-//
-//    }
-//}
-////        MergeFileSort mergeFileSort = new MergeFileSort();
-//
-////
-//        try (BufferedReader in1 = new BufferedReader(new FileReader("strASC/1.txt"));
-//             BufferedReader in2 = new BufferedReader(new FileReader("strASC/2.txt"));
-//             BufferedWriter out = new BufferedWriter(new FileWriter("strASC/out.txt"))
-//        ) {
-//            mergeFileSort.mergeSort(mergeFileSort.stringMethod(SortDirection.ASC), in1, in2, out);
-//          } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        try (BufferedReader in1 = new BufferedReader(new FileReader("intASC/1.txt"));
-//             BufferedReader in2 = new BufferedReader(new FileReader("intASC/2.txt"));
-//             BufferedWriter out = new BufferedWriter(new PrintWriter("intASC/out.txt"))
-//        ) {
-//            mergeFileSort.mergeSort(mergeFileSort.intMethod(SortDirection.ASC), in1, in2, out);
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        try (BufferedReader in1 = new BufferedReader(new FileReader("strDESC/1.txt"));
-//             BufferedReader in2 = new BufferedReader(new FileReader("strDESC/2.txt"));
-//             BufferedWriter out = new BufferedWriter(new FileWriter("strDESC/out.txt"))
-//        ) {
-//            mergeFileSort.mergeSort(mergeFileSort.stringMethod(SortDirection.DESC), in1, in2, out);
-//
-//
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//
-//        try (BufferedReader in1 = new BufferedReader(new FileReader("intDESC/1.txt"));
-//             BufferedReader in2 = new BufferedReader(new FileReader("intDESC/2.txt"));
-//             BufferedWriter out = new BufferedWriter(new FileWriter("intDESC/out.txt"))
-//        ) {
-//            mergeFileSort.mergeSort(mergeFileSort.intMethod(SortDirection.DESC), in1, in2, out);
-//
-//        } catch (FileNotFoundException e) {
-//            throw new RuntimeException(e);
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//    }
-//}
